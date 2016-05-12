@@ -1,6 +1,16 @@
-$(document).on("focus", "#datepicker", function() {
+$(document).on("focus", "#datepicker", function () {
     $('#datepicker').datepicker({
         dateFormat: 'yy-mm-dd',
+    });
+});
+$(document).on("focus", ".timepicker", function () {
+    $('input.timepicker').timepicker({
+        timeFormat: 'hh:mm:ss p',
+//        defaultTime: 'now',
+        minTime: '06:00:00 AM',
+        maxTime: '09:00:00 PM',
+        startTime: '06:00:00 AM',
+        interval: 60
     });
 });
 
@@ -26,4 +36,5 @@ function range(start, stop, step) {
     }
 
     return result;
-};
+}
+;

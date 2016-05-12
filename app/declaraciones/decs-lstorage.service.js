@@ -4,7 +4,7 @@
 
     angular
             .module('gasolinaApp')
-            .service('DeclaracionesService', AsignacionesService);
+            .service('AsignacionesService', AsignacionesService);
 
     AsignacionesService.$inject = ['$localStorage'];
     function AsignacionesService($localStorage) {

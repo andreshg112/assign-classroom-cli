@@ -46,7 +46,8 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-4">Hora de inicio:</label>
                                 <div class="col-sm-8">
-                                    <select ng-model="regVm.asignacion.hora_inicio" ng-options="hora for hora in regVm.horas" class="form-control"></select>
+                                    <!--<select ng-model="regVm.asignacion.hora_inicio" ng-options="hora for hora in regVm.horas" class="form-control"></select>-->
+                                    <input type="text" class="timepicker form-control" name="time"/>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +66,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-4">Hora de finalización:</label>
                                 <div class="col-sm-8">
-                                    <select ng-model="regVm.asignacion.hora_fin" ng-options="hora for hora in regVm.horas" class="form-control"></select>
+                                    <input type="text" class="timepicker form-control" name="time"/>
                                 </div>
                             </div>
                         </div>
@@ -74,35 +75,37 @@
             </div>
         </div>
     </div>
-    <div id="fila-5" class="row">
+    <div id="fila-5" class="row" ng-controller="ConsultarController as consultarVm">
         <div class="col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Salas asignadas
+                    Salas reservadas
                 </div>
                 <div class="panel-body">
-                    <table class="table table-bordered table-hover table-striped">
-                        <tr>
-                            <th>#</th>
-                            <th>Docente</th>
-                            <th>Asignatura/Asunto</th>
-                            <th>Sala</th>
-                            <th>Fecha</th>
-                            <th>Hora de inicio</th>
-                            <th>Hora de finalización</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                        <tr ng-repeat="asignacion in consultarVm.asignaciones track by $index">
-                            <td>{{$index}}</td>
-                            <td>{{asignacion.docente}}</td>
-                            <td>{{asignacion.asunto}}</td>
-                            <td>{{asignacion.sala}}</td>
-                            <td>{{asignacion.fecha}}</td>
-                            <td>{{asignacion.hora_inicio}}</td>
-                            <td>{{asignacion.hora_fin}}</td>
-                            <td><a ng-click="consultarVm.mostrarDeclaracion(asignacion)" href="javascript:;">Ver JSON</a></td>
-                        </tr>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            <tr>
+                                <th>#</th>
+                                <th>Docente</th>
+                                <th>Asignatura/Asunto</th>
+                                <th>Sala</th>
+                                <th>Fecha</th>
+                                <th>Hora de inicio</th>
+                                <th>Hora de finalización</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr ng-repeat="asignacion in consultarVm.asignaciones track by $index">
+                                <td>{{$index + 1}}</td>
+                                <td>{{asignacion.docente}}</td>
+                                <td>{{asignacion.asunto}}</td>
+                                <td>{{asignacion.sala}}</td>
+                                <td>{{asignacion.fecha}}</td>
+                                <td>{{asignacion.hora_inicio}}</td>
+                                <td>{{asignacion.hora_fin}}</td>
+                                <td><a ng-click="consultarVm.mostrarDeclaracion(asignacion)" href="javascript:;">Cancelar</a></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

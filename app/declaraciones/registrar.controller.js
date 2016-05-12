@@ -5,8 +5,8 @@
             .module('gasolinaApp')
             .controller('RegistrarController', RegistrarController);
 
-    RegistrarController.$inject = ['DeclaracionesService', 'HorasService', 'SalasService'];
-    function RegistrarController(DeclaracionesService, HorasService, SalasService) {
+    RegistrarController.$inject = ['AsignacionesService', 'HorasService', 'SalasService'];
+    function RegistrarController(AsignacionesService, HorasService, SalasService) {
         console.log("Entró a RegistrarController");
         var vm = this;
 
@@ -27,10 +27,10 @@
         }
 
         function guardar() {
-            vm.declaracion.fecha = $('#datepicker').val();
-            console.log(vm.declaracion);
-            //lstorage o memory
-            if (DeclaracionesService.save(vm.declaracion)) {
+            vm.asignacion.fecha = $('#datepicker').val();
+            console.log(vm.asignacion);
+            //lstorage
+            if (AsignacionesService.save(vm.asignacion)) {
                 activate();
                 vm.respuestaRegistro = "Registró correctamente";
             } else {
