@@ -10,7 +10,8 @@ $(document).on("focus", ".timepicker", function () {
         minTime: '06:00:00 AM',
         maxTime: '09:00:00 PM',
         startTime: '06:00:00 AM',
-        interval: 60
+        interval: 60,
+        scrollbar: true
     });
 });
 
