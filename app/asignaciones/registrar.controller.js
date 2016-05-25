@@ -12,7 +12,6 @@
 
         //Declaraciones de variables en orden alfabético.
         vm.salas = SalasService.getSalas();
-        vm.calcular = calcular;
         vm.horas = HorasService.getHoras();
         vm.guardar = guardar;
 
@@ -21,13 +20,10 @@
             vm.asignacion = {};
         }
 
-        function calcular(gasolina) {
-            gasolina.base_gravable = gasolina.galones_gravado * (1 - (gasolina.porcentaje_alcohol / 100)) * gasolina.precio_referencia;
-            gasolina.sobretasa = gasolina.base_gravable * 0.06;
-        }
-
         function guardar() {
             vm.asignacion.fecha = $('#datepicker').val();
+            vm.asignacion.hora_inicio = $('#hora_inicio').val();
+            vm.asignacion.hora_fin = $('#hora_fin').val();
             console.log(vm.asignacion);
             //lstorage
             if (AsignacionesService.save(vm.asignacion)) {

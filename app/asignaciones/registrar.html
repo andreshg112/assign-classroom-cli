@@ -26,33 +26,14 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">Fecha:</label>
-                                <div class="col-sm-8">
-                                    <input id="datepicker" type="text" ng-model="regVm.asignacion.fecha" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="fila-4-2" class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
                                 <label class="col-sm-4 control-label">Asignatura/Asunto:</label>
                                 <div class="col-sm-8">
                                     <input class="form-control" type="text" ng-model="regVm.asignacion.asunto">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-4">Hora de inicio:</label>
-                                <div class="col-sm-8">
-                                    <!--<select ng-model="regVm.asignacion.hora_inicio" ng-options="hora for hora in regVm.horas" class="form-control"></select>-->
-                                    <input type="text" class="timepicker form-control" name="time"/>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <div id="fila-4-3" class="row">
+                    <div id="fila-4-2" class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Sala:</label>
@@ -64,9 +45,29 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label class="col-sm-4 control-label">Fecha:</label>
+                                <div class="col-sm-8">
+                                    <input id="datepicker" type="text" ng-model="regVm.asignacion.fecha" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div id="fila-4-3" class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Hora de inicio:</label>
+                                <div class="col-sm-8">
+                                    <!--<select ng-model="regVm.asignacion.hora_inicio" ng-options="hora for hora in regVm.horas" class="form-control"></select>-->
+                                    <input id="hora_inicio" ng-model="regVm.asignacion.hora_inicio" type="text" class="timepicker form-control" name="time"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
                                 <label class="control-label col-sm-4">Hora de finalización:</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="timepicker form-control" name="time"/>
+                                    <input id="hora_fin" ng-model="regVm.asignacion.hora_fin" type="text" class="timepicker form-control" name="time"/>
                                 </div>
                             </div>
                         </div>
