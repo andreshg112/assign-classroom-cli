@@ -9,7 +9,7 @@
     function RegistrarController(AsignacionesService, HorasService, SalasService) {
         console.log("Entró a RegistrarController");
         var vm = this;
-
+//
         //Declaraciones de variables en orden alfabético.
         vm.salas = SalasService.getSalas();
         vm.horas = HorasService.getHoras();
