@@ -5,11 +5,11 @@ $(document).on("focus", "#datepicker", function () {
 });
 $(document).on("focus", ".timepicker", function () {
     $('input.timepicker').timepicker({
-        timeFormat: 'hh:mm:ss p',
+        timeFormat: 'HH:mm:ss',
 //        defaultTime: 'now',
-        minTime: '06:00:00 AM',
-        maxTime: '09:00:00 PM',
-        startTime: '06:00:00 AM',
+        minTime: '06:00:00',
+        maxTime: '21:00:00',
+        startTime: '06:00:00',
         interval: 60,
         scrollbar: true
     });

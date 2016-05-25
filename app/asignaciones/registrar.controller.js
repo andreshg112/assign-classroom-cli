@@ -9,7 +9,7 @@
     function RegistrarController(AsignacionesService, HorasService, SalasService) {
         console.log("Entró a RegistrarController");
         var vm = this;
-//
+
         //Declaraciones de variables en orden alfabético.
         vm.salas = SalasService.getSalas();
         vm.horas = HorasService.getHoras();
@@ -18,6 +18,8 @@
         //Funciones, en orden alfabético
         function activate() {
             vm.asignacion = {};
+            $('#hora_inicio').val("");
+            $('#hora_fin').val("");
         }
 
         function guardar() {
