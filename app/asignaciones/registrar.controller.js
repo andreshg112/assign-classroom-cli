@@ -27,27 +27,19 @@
             vm.asignacion.hora_inicio = $('#hora_inicio').val();
             vm.asignacion.hora_fin = $('#hora_fin').val();
             console.log(vm.asignacion);
-            //lstorage
-            if (AsignacionesService.save(vm.asignacion)) {
-                activate();
-                vm.respuestaRegistro = "Registró correctamente";
-            } else {
-                vm.respuestaRegistro = "Error registrando.";
-            }
-            $("#modalRegistro").modal();
-//            DeclaracionesService.save(vm.declaracion)
-//                    .then(function (response) {
-//                        console.log(response);
-//                        activate();
-//                        vm.respuestaRegistro = "Registró correctamente";
-//                    })
-//                    .catch(function (error) {
-//                        console.log(error);
-//                        vm.respuestaRegistro = error.statusText;
-//                    })
-//                    .finally(function () {
-//                        $("#modalRegistro").modal();
-//                    });
+            AsignacionesService.save(vm.asignacion)
+                    .then(function (response) {
+                        console.log(response);
+                        activate();
+                        vm.respuestaRegistro = response.data.mensaje;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                        vm.respuestaRegistro = error.statusText;
+                    })
+                    .finally(function () {
+                        $("#modalRegistro").modal();
+                    });
         }
         activate();
     }

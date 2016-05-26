@@ -1,28 +1,28 @@
-(function() {
+(function () {
     'use strict';
 
     angular
-        .module('gasolinaApp')
-        .service('DeclaracionesService', DeclaracionesService);
+            .module('gasolinaApp')
+            .service('AsignacionesService', AsignacionesService);
 
-    DeclaracionesService.$inject = ['$http'];
-    function DeclaracionesService($http) {
+    AsignacionesService.$inject = ['$http'];
+    function AsignacionesService($http) {
         this.all = all;
         this.save = save;
 
         ////////////////
 
-        var uri = "https://nameless-falls-81232.herokuapp.com/declaraciones";
+        var uri = "http://localhost/assign-classroom-server/reservas";
 
         function all() {
-            console.log("getAll");
+            console.log("get_all");
             var req = $http.get(uri);
             return req;
         }
 
         function save(registro) {
             console.log("post");
-            var req = $http.post(uri, { declaracion: registro });
+            var req = $http.post(uri, registro);
             return req;
         }
     }
