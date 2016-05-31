@@ -39,6 +39,7 @@
                                 <label class="col-sm-4 control-label">Sala:</label>
                                 <div class="col-sm-8">
                                     <select ng-model="regVm.asignacion.sala" ng-options="sala for sala in regVm.salas" class="form-control" required>
+                                        <option selected value>Seleccione una sala</option>
                                     </select>
                                 </div>
                             </div>
@@ -78,9 +79,11 @@
     </div>
     <center>
         <input type="submit" class="btn btn-success" value="Guardar" />
+        &emsp;
+        <input type="button" class="btn btn-danger" value="Limpiar" ng-click="regVm.limpiar()"/>
     </center>
     <br>
-    <div id="fila-5" class="row" ng-controller="ConsultarController as consultarVm">
+    <div id="fila-5" class="row">
         <div class="col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -99,7 +102,7 @@
                                 <th>Hora de finalización</th>
                                 <th>&nbsp;</th>
                             </tr>
-                            <tr ng-repeat="asignacion in consultarVm.asignaciones| filter:{'fecha': regVm.asignacion.fecha, 'sala': regVm.asignacion.sala} track by $index">
+                            <tr ng-repeat="asignacion in regVm.asignaciones| filter:{'fecha': regVm.asignacion.fecha, 'sala': regVm.asignacion.sala} track by $index">
                                 <td>{{$index + 1}}</td>
                                 <td>{{asignacion.docente}}</td>
                                 <td>{{asignacion.asunto}}</td>
@@ -107,7 +110,7 @@
                                 <td>{{asignacion.fecha}}</td>
                                 <td>{{asignacion.hora_inicio}}</td>
                                 <td>{{asignacion.hora_fin}}</td>
-                                <td><a ng-click="consultarVm.mostrarDeclaracion(asignacion)" href="javascript:;">Cancelar</a></td>
+                                <td><a ng-click="regVm.cancelarAsignacion(asignacion)" href="javascript:;">Cancelar</a></td>
                             </tr>
                         </table>
                     </div>
@@ -122,7 +125,7 @@
         <div class="modal-content">
             <div class="modal-header" style="text-align: center;">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">{{regVm.respuestaRegistro}}</h4>
+                <h4 class="modal-title">{{regVm.modalRespuesta}}</h4>
             </div>
             <div class="modal-footer" style="text-align: center;">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
