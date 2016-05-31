@@ -36,19 +36,23 @@
         }
 
         function cancelarAsignacion(asignacion) {
-            AsignacionesService.delete(asignacion)
-                    .then(function (response) {
-                        console.log(response);
-                        activate();
-                        vm.modalRespuesta = response.data.mensaje;
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                        vm.modalRespuesta = error.statusText;
-                    })
-                    .finally(function () {
-                        $("#modalRegistro").modal();
+            alertify.confirm("¿Desea cancelar la reserva de la sala?",
+                    function () {
+                        AsignacionesService.delete(asignacion)
+                                .then(function (response) {
+                                    console.log(response);
+                                    activate();
+                                    alertify.success(response.data.mensaje);
+                                })
+                                .catch(function (error) {
+                                    console.log(error);
+                                    alertify.error(error.statusText);
+                                });
+                    },
+                    function () {
+                        //Si presiona Cancel.
                     });
+
         }
 
         function guardar() {
@@ -60,14 +64,11 @@
                     .then(function (response) {
                         console.log(response);
                         activate();
-                        vm.modalRespuesta = response.data.mensaje;
+                        alertify.success(response.data.mensaje);
                     })
                     .catch(function (error) {
                         console.log(error);
-                        vm.modalRespuesta = error.statusText;
-                    })
-                    .finally(function () {
-                        $("#modalRegistro").modal();
+                        alertify.error(error.statusText);
                     });
         }
 
