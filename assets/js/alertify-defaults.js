@@ -29,17 +29,19 @@ alertify.defaults = {
         // dialogs default title
         title: 'Mensaje',
         // ok button text
-        ok: 'Aceptar',
+        ok: 'Sí',
         // cancel button text
-        cancel: 'Cancelar'
+        cancel: 'No'
     },
     // theme settings
     theme: {
         // class name attached to prompt dialog input textbox.
         input: 'ajs-input',
         // class name attached to ok button
-        ok: 'ajs-ok',
+//        ok: 'ajs-ok',
+        ok: 'btn btn-success btn-xs',
         // class name attached to cancel button 
-        cancel: 'ajs-cancel'
+//        cancel: 'ajs-cancel'
+        cancel: 'btn btn-danger btn-xs'
     }
 };

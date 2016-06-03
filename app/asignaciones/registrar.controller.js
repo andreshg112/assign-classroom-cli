@@ -5,8 +5,8 @@
             .module('gasolinaApp')
             .controller('RegistrarController', RegistrarController);
 
-    RegistrarController.$inject = ['AsignacionesService', 'HorasService', 'SalasService'];
-    function RegistrarController(AsignacionesService, HorasService, SalasService) {
+    RegistrarController.$inject = ['AsignacionesService', 'SalasService'];
+    function RegistrarController(AsignacionesService, SalasService) {
         console.log("Entró a RegistrarController");
         var vm = this;
 
@@ -14,7 +14,6 @@
         vm.asignaciones = [];
         vm.cancelarAsignacion = cancelarAsignacion;
         vm.guardar = guardar;
-        vm.horas = HorasService.getHoras();
         vm.limpiar = limpiar;
         vm.salas = SalasService.getSalas();
 
